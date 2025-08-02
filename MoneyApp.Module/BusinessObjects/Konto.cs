@@ -44,5 +44,11 @@ namespace MoneyApp.Module.BusinessObjects
             get => GetPropertyValue<Kategorie>(nameof(Kategorie));
             set => SetPropertyValue(nameof(Kategorie), value);
         }
+
+        [Association("Konto-Buchungen")]
+        public XPCollection<Buchung> Buchungen
+        {
+            get => GetCollection<Buchung>(nameof(Buchungen));
+        }
     }
 }
