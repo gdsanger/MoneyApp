@@ -24,6 +24,7 @@ public sealed class MoneyAppBlazorModule : ModuleBase {
         e.Handled = true;
     }
     public MoneyAppBlazorModule() {
+        
     }
     public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
         return ModuleUpdater.EmptyModuleUpdaters;

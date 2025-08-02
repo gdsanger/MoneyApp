@@ -14,6 +14,7 @@ public class MoneyAppBlazorApplication : BlazorApplication {
         ApplicationName = "MoneyApp";
         CheckCompatibilityType = DevExpress.ExpressApp.CheckCompatibilityType.DatabaseSchema;
         DatabaseVersionMismatch += MoneyAppBlazorApplication_DatabaseVersionMismatch;
+        LinkNewObjectToParentImmediately = true;
     }
     protected override void OnSetupStarted() {
         base.OnSetupStarted();
