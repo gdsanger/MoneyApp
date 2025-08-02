@@ -50,5 +50,11 @@ namespace MoneyApp.Module.BusinessObjects
         {
             get => GetCollection<Buchung>(nameof(Buchungen));
         }
+
+        [NonPersistent]
+        public decimal Saldo => Buchungen.Where(b => b.Typ == Buchungstyp.Erledigt).Sum(b => b.Betrag);
+
+        [NonPersistent]
+        public decimal SaldoErwartet => Buchungen.Where(b => b.Typ == Buchungstyp.Erledigt || b.Typ == Buchungstyp.Geplant).Sum(b => b.Betrag);
     }
 }

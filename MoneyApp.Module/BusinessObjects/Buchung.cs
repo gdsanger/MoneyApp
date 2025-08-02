@@ -101,6 +101,14 @@ namespace MoneyApp.Module.BusinessObjects
             protected set => SetPropertyValue(nameof(Saldo), ref saldo, value);
         }
 
+        private decimal saldoGeplant;
+        [Persistent]
+        public decimal SaldoGeplant
+        {
+            get => saldoGeplant;
+            protected set => SetPropertyValue(nameof(SaldoGeplant), ref saldoGeplant, value);
+        }
+
         protected override void OnSaving()
         {
             base.OnSaving();
@@ -112,12 +120,23 @@ namespace MoneyApp.Module.BusinessObjects
                     Position = (maxPos is int ? (int)maxPos : 0) + 1;
                 }
 
-                decimal sum = 0m;
+                decimal sumErledigt = 0m;
+                decimal sumGeplant = 0m;
                 foreach (Buchung buchung in Konto.Buchungen)
                 {
-                    sum += buchung == this ? Betrag : buchung.Betrag;
+                    var typ = buchung == this ? Typ : buchung.Typ;
+                    var betrag = buchung == this ? Betrag : buchung.Betrag;
+                    if (typ == Buchungstyp.Erledigt)
+                    {
+                        sumErledigt += betrag;
+                    }
+                    if (typ == Buchungstyp.Erledigt || typ == Buchungstyp.Geplant)
+                    {
+                        sumGeplant += betrag;
+                    }
                 }
-                Saldo = sum;
+                Saldo = sumErledigt;
+                SaldoGeplant = sumGeplant;
             }
         }
 
