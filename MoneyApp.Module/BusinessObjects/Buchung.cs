@@ -1,4 +1,5 @@
 ﻿using DevExpress.Data.Filtering;
+using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.DC;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Base.General;
@@ -12,6 +13,7 @@ namespace MoneyApp.Module.BusinessObjects
     [NavigationItem("MoneyApp")]
     [XafDisplayName("Buchung")]
     [ImageName("BO_Note")]
+    [Appearance("BetragNegativ", Criteria = "Betrag < 0", FontColor = "Red")]
     public class Buchung : BaseObject, ISupportNotifications
     {
         public Buchung(Session session)
