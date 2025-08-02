@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyApp.Module", "MoneyApp.Module\MoneyApp.Module.csproj", "{E15E9035-30C1-0B22-54E6-9B9EB3FCC85B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyApp.Win", "MoneyApp.Win\MoneyApp.Win.csproj", "{53CA9B1A-9677-6B41-63BA-A48B9DD3DB30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyApp.Blazor.Server", "MoneyApp.Blazor.Server\MoneyApp.Blazor.Server.csproj", "{CA71F07C-C308-6EE1-8EB8-6B76F4C6E378}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		EasyTest|Any CPU = EasyTest|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E15E9035-30C1-0B22-54E6-9B9EB3FCC85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E15E9035-30C1-0B22-54E6-9B9EB3FCC85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E15E9035-30C1-0B22-54E6-9B9EB3FCC85B}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{E15E9035-30C1-0B22-54E6-9B9EB3FCC85B}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{E15E9035-30C1-0B22-54E6-9B9EB3FCC85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E15E9035-30C1-0B22-54E6-9B9EB3FCC85B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53CA9B1A-9677-6B41-63BA-A48B9DD3DB30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53CA9B1A-9677-6B41-63BA-A48B9DD3DB30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53CA9B1A-9677-6B41-63BA-A48B9DD3DB30}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{53CA9B1A-9677-6B41-63BA-A48B9DD3DB30}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{53CA9B1A-9677-6B41-63BA-A48B9DD3DB30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53CA9B1A-9677-6B41-63BA-A48B9DD3DB30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA71F07C-C308-6EE1-8EB8-6B76F4C6E378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA71F07C-C308-6EE1-8EB8-6B76F4C6E378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA71F07C-C308-6EE1-8EB8-6B76F4C6E378}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{CA71F07C-C308-6EE1-8EB8-6B76F4C6E378}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{CA71F07C-C308-6EE1-8EB8-6B76F4C6E378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA71F07C-C308-6EE1-8EB8-6B76F4C6E378}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
