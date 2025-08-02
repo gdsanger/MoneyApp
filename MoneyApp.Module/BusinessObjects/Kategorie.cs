@@ -30,18 +30,27 @@ namespace MoneyApp.Module.BusinessObjects
             get => GetPropertyValue<string>(nameof(Name));
             set => SetPropertyValue(nameof(Name), value);
         }
+        public Hauptkategorie Hauptkategorie
+        {
+            get => GetPropertyValue<Hauptkategorie>(nameof(Hauptkategorie));
+            set => SetPropertyValue(nameof(Hauptkategorie), value);
+        }
         public KategorieTyp Typ
         {
             get => GetPropertyValue<KategorieTyp>(nameof(Typ));
             set => SetPropertyValue(nameof(Typ), value);
         }
 
-
     }
     public enum KategorieTyp
     {
         Konten,
         Buchungen
-
+    }
+    public enum Hauptkategorie
+    {
+        Einnahmen =0,
+        Ausgaben=1,
+        DurchlaufendePosten = 9,
     }
 }
