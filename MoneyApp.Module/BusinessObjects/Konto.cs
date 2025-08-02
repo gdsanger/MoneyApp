@@ -1,5 +1,6 @@
 ﻿using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
@@ -20,7 +21,7 @@ namespace MoneyApp.Module.BusinessObjects
     [ImageName("BO_Account")]
     [DefaultClassOptions]
     [CreatableItem(false)]
-
+    [Appearance("SaldoNegativ", Criteria = "Saldo < 0", FontColor = "Red")]
     public class Konto : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://docs.devexpress.com/eXpressAppFramework/113146/business-model-design-orm/business-model-design-with-xpo/base-persistent-classes).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.

@@ -15,6 +15,7 @@ namespace MoneyApp.Module.BusinessObjects
     [XafDisplayName("Buchung")]
     [ImageName("BO_Note")]
     [Appearance("BetragNegativ", Criteria = "Betrag < 0", FontColor = "Red")]
+    [Appearance("SaldoNegativ", Criteria = "Saldo < 0", FontColor = "Red")]
     public class Buchung : BaseObject, ISupportNotifications
     {
         public Buchung(Session session)
