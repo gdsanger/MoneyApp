@@ -5,6 +5,7 @@ using DevExpress.Persistent.Base.General;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace MoneyApp.Module.BusinessObjects
 {
@@ -65,6 +66,7 @@ namespace MoneyApp.Module.BusinessObjects
         }
 
         private DateTime? alarmTime;
+        [XafDisplayName("Fälligkeit")]
         public DateTime? AlarmTime
         {
             get => alarmTime;
@@ -139,10 +141,11 @@ namespace MoneyApp.Module.BusinessObjects
                 SaldoGeplant = sumGeplant;
             }
         }
-
+        [Browsable(false)]
         public string NotificationMessage => $"{Zweck} ({AlarmTime:yyyy-MM-dd})";
-
+        [Browsable(false)]
         public Object UniqueId => Oid;
+        [Browsable(false)]
         public bool IsPostponed
         {
             get => GetPropertyValue<bool>(nameof(IsPostponed));
