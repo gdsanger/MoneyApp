@@ -32,6 +32,7 @@
     <PackageReference Include="DevExpress.ExpressApp.Chart.Win" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Dashboards.Win" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.de" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.FileAttachment.Win" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Notifications.Win" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Office.Win" Version="24.2.8" />
@@ -39,6 +40,7 @@
     <PackageReference Include="DevExpress.ExpressApp.Security.Xpo" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Win.de" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Win.Design" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="24.2.8" />
     <PackageReference Include="DevExpress.Persistent.Base" Version="24.2.8" />

@@ -53,7 +53,7 @@ public class Updater : ModuleUpdater {
         // If a user named 'Admin' doesn't exist in the database, create this user
         if(userManager.FindUserByName<ApplicationUser>(ObjectSpace, "Admin") == null) {
             // Set a password if the standard authentication type is used
-            string EmptyPassword = "";
+            string EmptyPassword = "++Sah12#";
             _ = userManager.CreateUser<ApplicationUser>(ObjectSpace, "Admin", EmptyPassword, (user) => {
                 // Add the Administrators role to the user
                 user.Roles.Add(adminRole);

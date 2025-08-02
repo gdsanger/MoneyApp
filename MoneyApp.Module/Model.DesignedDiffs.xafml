@@ -1,11 +1,15 @@
-﻿<?xml version="1.0" ?>
-<Application Title="MoneyApp">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="MoneyApp" Company="Perculasoft" Copyright="2025 Christian Angermeier" PreferredLanguage="de-DE">
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="24.2.8.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="24.2.8.0" IsNewNode="True" />
+  </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
   </Views>

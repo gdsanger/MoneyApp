@@ -19,8 +19,10 @@
   <ItemGroup>
     <PackageReference Include="DevExpress.Drawing.Skia" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Blazor" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.Blazor.de" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Dashboards.Blazor" Version="24.2.8" />
+    <PackageReference Include="DevExpress.ExpressApp.de" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.FileAttachment.Blazor" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Notifications.Blazor" Version="24.2.8" />
     <PackageReference Include="DevExpress.ExpressApp.Office.Blazor" Version="24.2.8" />
