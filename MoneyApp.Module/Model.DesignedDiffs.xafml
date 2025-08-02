@@ -12,5 +12,33 @@
   </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <ListView Id="Konto_Buchungen_ListView">
+      <Columns>
+        <ColumnInfo Id="Position" Width="93" SortIndex="0" SortOrder="Ascending" />
+        <ColumnInfo Id="Datum" Width="97" />
+        <ColumnInfo Id="Kategorie" Width="104" />
+        <ColumnInfo Id="Typ" Width="58" />
+        <ColumnInfo Id="AlarmTime" Width="98" />
+        <ColumnInfo Id="Zweck" Width="78" />
+        <ColumnInfo Id="Betrag" Width="80" />
+        <ColumnInfo Id="Saldo" Width="74" />
+        <ColumnInfo Id="SaldoGeplant" Width="140" />
+      </Columns>
+    </ListView>
+    <ListView Id="Konto_ListView" IsFooterVisible="True">
+      <Columns>
+        <ColumnInfo Id="Kategorie" Width="243" />
+        <ColumnInfo Id="Saldo" Width="74">
+          <Summary>
+            <ColumnSummaryItem Id="@314e9fd8-90b5-4044-a397-44cea1753df3" SummaryType="Sum" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+        <ColumnInfo Id="SaldoErwartet" Width="143">
+          <Summary>
+            <ColumnSummaryItem Id="@61cbbbf4-f40c-406b-9006-098b66b0f69e" SummaryType="Sum" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+      </Columns>
+    </ListView>
   </Views>
 </Application>

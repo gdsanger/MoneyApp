@@ -21,7 +21,8 @@ namespace MoneyApp.Module.BusinessObjects
     [ImageName("BO_Account")]
     [DefaultClassOptions]
     [CreatableItem(false)]
-    [Appearance("SaldoNegativ", Criteria = "Saldo < 0", FontColor = "Red")]
+    [Appearance("KontoSaldoNegativ", Criteria = "Saldo < 0", FontColor = "Red", TargetItems = "Saldo")]
+    [Appearance("KontoSaldoErwartetNegativ", Criteria = "SaldoErwartet < 0", FontColor = "Red", TargetItems = "SaldoErwartet")]
     public class Konto : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://docs.devexpress.com/eXpressAppFramework/113146/business-model-design-orm/business-model-design-with-xpo/base-persistent-classes).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
@@ -58,18 +59,36 @@ namespace MoneyApp.Module.BusinessObjects
         [NonPersistent]
         public decimal SaldoErwartet => Buchungen.Where(b => b.Typ == Buchungstyp.Erledigt || b.Typ == Buchungstyp.Geplant).Sum(b => b.Betrag);
 
-        public void ErzeugeBuchungen(int anzahl, int intervallMonate, Buchungstyp status)
+        [Action(Caption = "Buchungen erzeugen", ImageName = "BO_Account")]
+        public void ErzeugeBuchungen(ErzeugeBuchungenArgs args)
         {
-            for (int i = 0; i < anzahl; i++)
+            for (int i = 0; i < args.Anzahl; i++)
             {
                 var buchung = new Buchung(Session)
                 {
                     Konto = this,
-                    Datum = DateTime.Today.AddMonths(i * intervallMonate),
-                    Typ = status,
-                    Zweck = $"Automatische Buchung {i + 1}"
+                    Datum = args.Start.AddMonths(i * args.IntervallMonate),
+                    AlarmTime = args.Start.AddMonths(i * args.IntervallMonate),
+                    Typ = args.Status,
+                    Kategorie = Session.GetObjectByKey<Kategorie>(args.Kategorie.Oid),
+                    Zweck = $"{args.Zweck} ({i})",
+                    Betrag = args.Betrag,
                 };
+                Session.Save(buchung);
             }
         }
+    }
+
+    [NonPersistent]
+    public class ErzeugeBuchungenArgs
+    {
+        public decimal Betrag { get; set; }
+        public DateTime Start { get; set; } = DateTime.Today;
+        [DataSourceCriteria("Typ = ##Enum#MoneyApp.Module.BusinessObjects.KategorieTyp,Buchungen#")]
+        public Kategorie Kategorie { get; set; }
+        public int Anzahl { get; set; }
+        public int IntervallMonate { get; set; }
+        public Buchungstyp Status { get; set; } = Buchungstyp.Geplant; // Standardwert auf Geplant setzen
+        public string Zweck { get; set; } = "Automatische Buchung";
     }
 }

@@ -14,8 +14,9 @@ namespace MoneyApp.Module.BusinessObjects
     [NavigationItem("MoneyApp")]
     [XafDisplayName("Buchung")]
     [ImageName("BO_Note")]
-    [Appearance("BetragNegativ", Criteria = "Betrag < 0", FontColor = "Red")]
-    [Appearance("SaldoNegativ", Criteria = "Saldo < 0", FontColor = "Red")]
+    [Appearance("BuchungBetragNegativ", Criteria = "Betrag < 0", FontColor = "Red", TargetItems = "Betrag")]
+    [Appearance("BuchungSaldoNegativ", Criteria = "Saldo < 0", FontColor = "Red", TargetItems = "Saldo")]
+    [Appearance("BuchungSaldoGeplantNegativ", Criteria = "SaldoGeplant < 0", FontColor = "Red", TargetItems = "SaldoGeplant")]
     public class Buchung : BaseObject, ISupportNotifications
     {
         public Buchung(Session session)
@@ -42,7 +43,7 @@ namespace MoneyApp.Module.BusinessObjects
         public int Position
         {
             get => position;
-            protected set => SetPropertyValue(nameof(Position), ref position, value);
+            set => SetPropertyValue(nameof(Position), ref position, value);
         }
 
         private DateTime datum;
@@ -127,7 +128,7 @@ namespace MoneyApp.Module.BusinessObjects
 
                 decimal sumErledigt = 0m;
                 decimal sumGeplant = 0m;
-                foreach (Buchung buchung in Konto.Buchungen)
+                foreach (Buchung buchung in Konto.Buchungen.OrderBy(b=>b.Datum).Where(b=>b.Datum<=Datum))
                 {
                     var typ = buchung == this ? Typ : buchung.Typ;
                     var betrag = buchung == this ? Betrag : buchung.Betrag;
