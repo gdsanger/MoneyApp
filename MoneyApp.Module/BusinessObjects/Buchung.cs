@@ -1,11 +1,10 @@
 ﻿using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.Persistent.Base;
+using DevExpress.Persistent.Base.General;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
-using System;
 
 namespace MoneyApp.Module.BusinessObjects
 {
@@ -64,11 +63,11 @@ namespace MoneyApp.Module.BusinessObjects
             set => SetPropertyValue(nameof(Typ), ref typ, value);
         }
 
-        private DateTime faelligkeit;
-        public DateTime Faelligkeit
+        private DateTime? alarmTime;
+        public DateTime? AlarmTime
         {
-            get => faelligkeit;
-            set => SetPropertyValue(nameof(Faelligkeit), ref faelligkeit, value);
+            get => alarmTime;
+            set => SetPropertyValue(nameof(AlarmTime), ref alarmTime, value);
         }
 
         private string zweck;
@@ -87,7 +86,6 @@ namespace MoneyApp.Module.BusinessObjects
         }
 
         private decimal betrag;
-        [RuleRequiredField]
         public decimal Betrag
         {
             get => betrag;
@@ -121,11 +119,14 @@ namespace MoneyApp.Module.BusinessObjects
             }
         }
 
-        DateTime ISupportNotifications.AlarmTime => Faelligkeit;
+        public string NotificationMessage => $"{Zweck} ({AlarmTime:yyyy-MM-dd})";
 
-        string ISupportNotifications.Caption => $"{Zweck} {Faelligkeit:yyyy-MM-dd}";
-
-        Guid ISupportNotifications.UniqueId => Oid;
+        public Object UniqueId => Oid;
+        public bool IsPostponed
+        {
+            get => GetPropertyValue<bool>(nameof(IsPostponed));
+            set => SetPropertyValue(nameof(IsPostponed), value);
+        }
     }
 
     public enum Buchungstyp
