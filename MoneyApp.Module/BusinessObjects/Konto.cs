@@ -57,5 +57,19 @@ namespace MoneyApp.Module.BusinessObjects
 
         [NonPersistent]
         public decimal SaldoErwartet => Buchungen.Where(b => b.Typ == Buchungstyp.Erledigt || b.Typ == Buchungstyp.Geplant).Sum(b => b.Betrag);
+
+        public void ErzeugeBuchungen(int anzahl, int intervallMonate, Buchungstyp status)
+        {
+            for (int i = 0; i < anzahl; i++)
+            {
+                var buchung = new Buchung(Session)
+                {
+                    Konto = this,
+                    Datum = DateTime.Today.AddMonths(i * intervallMonate),
+                    Typ = status,
+                    Zweck = $"Automatische Buchung {i + 1}"
+                };
+            }
+        }
     }
 }
