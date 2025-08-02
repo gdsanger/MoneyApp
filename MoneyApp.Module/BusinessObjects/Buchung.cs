@@ -34,6 +34,7 @@ namespace MoneyApp.Module.BusinessObjects
         }
 
         private int position;
+        [Persistent]
         public int Position
         {
             get => position;
@@ -93,6 +94,7 @@ namespace MoneyApp.Module.BusinessObjects
         }
 
         private decimal saldo;
+        [Persistent]
         public decimal Saldo
         {
             get => saldo;
